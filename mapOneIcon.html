@@ -28,7 +28,7 @@ var map = new mapboxgl.Map({
 
 map.on('load', function() {
     // map.loadImage('bigbarbarian.png', function(error, image) {
-    map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/DnD_Minotaur.png/83px-DnD_Minotaur.png', function(error, image) {
+    map.loadImage('https://github.com/cbush2014/Project-01/blob/master/assets/images/bigbarbarian.png', function(error, image) {
 // map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png', function(error, image) {
         if (error) throw error;
         map.addImage('cat', image);
@@ -50,7 +50,7 @@ map.on('load', function() {
             },
             "layout": {
                 "icon-image": "cat",
-                "icon-size": 0.50
+                "icon-size": 2.0
             }
         });
     });
