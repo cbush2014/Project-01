@@ -7,7 +7,7 @@ jQuery.ajaxPrefilter(function (options) {
 });
 
 //-- Calling the DND API
-$.ajax({
+var Goblin = $.ajax({
     url: "http://dnd5eapi.co/api/monsters/150/actions",
     method: "GET"
 }).then(function (response) {
@@ -18,7 +18,7 @@ $.ajax({
 //-- Creating the Arrays of monsters
 
 crOne = {
-    Goblin =[$.ajax({
+    gob =[$.ajax({
         url: "http://dnd5eapi.co/api/monsters/150/actions",
         method: "GET"
     }).then(function (response) {
