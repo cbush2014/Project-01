@@ -1,0 +1,26 @@
+.battle-divs {
+    border: darkslategrey;
+    border-style: double;
+    border-width: 2vh;
+}
+
+.wrapper {
+    margin-top: 3vh;
+}
+
+.RPS{
+    border: double darkslategrey;
+    border-width: 1vh;
+}
+
+.monsterName {
+    text-align: right;
+}
+
+.health-box {
+    background-color: #ccc;
+    height: 30px;
+    width: 500px;
+    margin: 0 auto;
+    border: solid 1px #aaa;
+  }
