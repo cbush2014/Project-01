@@ -2,7 +2,10 @@
 // THIS IS THE LOOP I USED TO GENERATE the data for local storage testingd
 // for (var i = 0; i < 50; i++) {
 //     getMonster();
-// }
+// // }
+// getMonsterIDX(150);
+// getMonsterIDX(13);
+// getMonsterIDX(229);
 
 var searchQuery = "";
 
@@ -16,6 +19,17 @@ var searchQuery = "";
 
 var monsterArray = JSON.parse(localStorage.getItem('DnD') || "[ [],[],[],[] ]");
 
+
+function getMonsterIDX(Idx) {
+    searchQuery = "monsters/" + Idx.toString();
+
+    $.ajax({
+        url: "http://dnd5eapi.co/api/" + searchQuery,
+        method: "GET"
+    }).then(function (response) {
+
+        setMonster(response);
+    });
 
 function getMonster() {
     var rdm = Math.floor(Math.random() * 325);
