@@ -6,29 +6,6 @@ jQuery.ajaxPrefilter(function (options) {
     }
 });
 
-//-- Calling the DND API
-var Goblin = $.ajax({
-    url: "http://dnd5eapi.co/api/monsters/150/actions",
-    method: "GET"
-}).then(function (response) {
-    $()
-    console.log(response);
-});
-
-
-//-- Creating the Arrays of monsters
-
-crOne = {
-    gob =[$.ajax({
-        url: "http://dnd5eapi.co/api/monsters/150/actions",
-        method: "GET"
-    }).then(function (response) {
-        console.log(response);
-    })
-        ,]
-}
-
-
 
 
 
@@ -55,99 +32,110 @@ $("#strongAttack").on("click", rockPS("s"))
 
 $("#counterAttack").on("click", rockPS("c"))
 
-rockPS = function (guess) {
+var victoryCounter = 0;//-- a way to keep track of the wins so we can progress to the next difficulty
+
+rockPS = function (guess) {//-- the Battle System; rock, paper, scissors basically.
     var monsterAttacks = ["f", "s", "c"];
 
     // Randomly chooses a choice from the options array. This is the Computer's guess.
-    var computerGuess = monsterAttacks[Math.floor(Math.random() * monsterAttacks.length)]
-    userGuess = guess
+    var computerGuess = monsterAttacks[Math.floor(Math.random() * monsterAttacks.length)];
+    var userGuess = guess;
     // Win/lose conditions:
     if ((userGuess === "f" && computerGuess === "s") ||
         (userGuess === "s" && computerGuess === "c") ||
         (userGuess === "c" && computerGuess === "f")) {
-        monsterHP - heroDmg;
-        if (monsterHP <= 0){
-            
-        }
+
+        monsterDmged();//-- deal damage to monster
+        victory();
+
     } else if (userGuess === computerGuess) {
-        monsterHP - heroDmg;
-        
+
+        monsterDmged();
+        heroDmged();
+        gameOver();
+        victory();
+
     } else {
-        // deal damage to character
-        alert("You've lost " + losses + " time(s).");
+
+        heroDmged(); // deal damage to character
+        gameOver();
+
     }
 }
 
+//-- Victory and Game Over functions
+function gameOver() {
+    if (curplayHealth <= 0) {
+        window.document.replace("../index.html")
+        //-- returns user to the start screen to try again
+    }
+}
+function victory() {
+    if (curMONHealth <= 0) {
+        victoryCounter++;
+        //-- call function the will bring up a new monster
+    }
+}
+
+//-- Health Points Bar for Player
 $ = jQuery;
-var maxHealth = 500,
-  curHealth = maxHealth;
-$('.total').html(maxHealth + "/" + maxHealth);
-$(".health-bar-text").html("100%");
-$(".health-bar").css({
-  "width": "100%"
+var maxplayHealth = 500, //-- needs to change when player stats are put in
+    curplayHealth = maxplayHealth;
+$('.playHealth').html(maxplayHealth + "/" + maxplayHealth);
+$(".playHealth-bar-text").html("100%");
+$(".playHealth-bar").css({
+    "width": "100%"
 });
 
-function heroDmged() {
-  if (curHealth == 0) {
-    $('.message-box').html("Is this the end??");
-  } else {
-    var damage = Math.floor((Math.random() * 100) + 50);
-    $(".health-bar-red, .health-bar").stop();
-    curHealth = curHealth - damage;
-    if (curHealth < 0) {
-      curHealth = 0;
-      restart();
-    } else {
-      $('.message-box').html("You took " + damage + " points of damage!");
+function heroDmged() {//-- the function for changing the health of the player when battle executes
+    if (curplayHealth > 0) {
+        var damage = Math.floor((Math.random() * 100) + 50);//--this needs to change to monster damage
+        $(".playHealth-bar-red, .playHealth-bar").stop();
+        curplayHealth = curplayHealth - damage;
+
+        applyChangeHero(curplayHealth);
     }
-    applyChange(curHealth);
-  }
 };
 
-function applyChangeHero(curHealth) {
-    var a = curHealth * (100 / maxHealth);
-    $(".health-bar-text").html(Math.round(a) + "%");
-    $(".health-bar-red").animate({
+function applyChangeHero(curplayHealth) {//-- the function for changing the player health element
+    var a = curplayHealth * (100 / maxplayHealth);
+    $(".playHealth-bar-text").html(Math.round(a) + "%");
+    $(".playHealth-bar-red").animate({
         'width': a + "%"
     }, 700);
-    $(".health-bar").animate({
+    $(".playHealth-bar").animate({
         'width': a + "%"
     }, 500);
-    $(".health-bar-blue").animate({
+    $(".playHealth-bar-blue").animate({
         'width': a + "%"
     }, 300);
-    $('.playHealth').html(curHealth + "/" + maxHealth);
+    $('.playHealth').html(curplayHealth + "/" + maxplayHealth);
 }
 
+//--Health Points Bar for Monster
 $ = jQuery;
-var maxHealth = 500,
-  curHealth = maxHealth;
-$('.monHealth').html(maxHealth + "/" + maxHealth);
+var maxMonHealth = newMonster.hit_points,
+    curMonHealth = maxMonHealth;
+$('.monHealth').html(maxMonHealth + "/" + maxMonHealth);
 $(".monHealth-bar-text").html("100%");
 $(".monHealth-bar").css({
-  "width": "100%"
+    "width": "100%"
 });
 
-function monsterDmged() {
-    if (curHealth == 0) {
-      $('.message-box').html("Is this the end??");
-    } else {
-      var damage = Math.floor((Math.random() * 100) + 50);
-      $(".monHealth-bar-red, .monHealth-bar").stop();
-      curHealth = curHealth - damage;
-      if (curHealth < 0) {
-        curHealth = 0;
-        restart();
-      } else {
-        $('.message-box').html("You took " + damage + " points of damage!");
-      }
-      applyChange(curHealth);
+
+function monsterDmged() { //-- the function for changing the health of the monster when battle executes
+    if (curMonHealth > 0) {
+        var damage = Math.floor((Math.random() * 100) + 50); //-- damage from the players stats
+        $(".monHealth-bar-red, .monHealth-bar").stop();
+        curMonHealth = curMonHealth - damage;
+        
+        applyChangeMon(curMONHealth);
     }
 };
 
 
-function applyChangeMon(curHealth) {
-    var a = curHealth * (100 / maxHealth);
+function applyChangeMon(curMonHealth) {//-- the function for changing the monster health element
+    var a = curMonHealth * (100 / maxMonHealth);
     $(".monHealth-bar-text").html(Math.round(a) + "%");
     $(".monHealth-bar-red").animate({
         'width': a + "%"
@@ -158,31 +146,6 @@ function applyChangeMon(curHealth) {
     $(".monHealth-bar-blue").animate({
         'width': a + "%"
     }, 300);
-    $('.monHealth').html(curHealth + "/" + maxHealth);
+    $('.monHealth').html(curMonHealth + "/" + maxMonHealth);
 }
 
-
-// $(".add-heal").click(function() {
-//   if (curHealth == maxHealth) {
-//     $('.message-box').html("You are already at full health");
-//   } else {
-//     var heal = Math.floor((Math.random() * 100) + 5);
-//     $(".health-bar-red, .health-bar-blue, .health-bar").stop();
-//     curHealth = curHealth + heal;
-//     if (curHealth > maxHealth) {
-//       curHealth = maxHealth;
-//       $('.message-box').html("You're at full health");
-//     } else if (curHealth == 0) {
-//       $('.message-box').html("Miraculously! You regained your health by " + heal + " points and get back on to your feet!");
-//     } else {
-//       $('.message-box').html("You regained your health by " + heal + " points!");
-//     }
-//     applyChange(curHealth);
-//   }
-// });
-
-// function restart() {
-//   //Was going to have a game over/restart function here. 
-//   $('.health-bar-red, .health-bar');
-//   $('.message-box').html("You've been knocked down! Thing's are looking bad.");
-// }
