@@ -35,7 +35,7 @@ function setMonster(monster) {
 
     var newMonster = {};
     newMonster.name = monster.name;
-    newMonster.hit_dice = monster.hit_dice;
+    newMonster.damage_bonus = monster.damage_bonus;
     newMonster.hit_points = monster.hit_points;
     newMonster.challenge_rating = monster.challenge_rating;
     newMonster.imageUrl = 'https://fakeimg.pl/200x200/ff0000,128/333333,255/?text=' + monster.name + '&font=lobster'

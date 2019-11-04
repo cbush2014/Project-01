@@ -68,30 +68,30 @@
             } else {
                 // INSANE
             }
-            
-            }
-
-            if (Scores !== null) {
-                Scores.push({
-                    'name': monster.name,
-                    'hit_points': monster.hit_points,
-                    'hit_dice': monster.hit_dice,
-                    'challenge_rating': monster.challenge_rating,
-                    'imageUrl': 'https://fakeimg.pl/200x200/ff0000,128/333333,255/?text=' + monster.name + '&font=lobster'
-                });
-            } else {
-                Scores = [];
-                Scores.push({
-                    'name': monster.name,
-                    'hit_points': monster.hit_points,
-                    'hit_dice': monster.hit_dice,
-                    'challenge_rating': monster.challenge_rating,
-                    'imageUrl': 'https://fakeimg.pl/200x200/ff0000,128/333333,255/?text=' + monster.name + '&font=lobster'
-                });
-            }
-            localStorage.setItem('DnD2', JSON.stringify(Scores));
 
         }
+
+        // if (Scores !== null) {
+        //     Scores.push({
+        //         'name': monster.name,
+        //         'hit_points': monster.hit_points,
+        //         'hit_dice': monster.hit_dice,
+        //         'challenge_rating': monster.challenge_rating,
+        //         'imageUrl': 'https://fakeimg.pl/200x200/ff0000,128/333333,255/?text=' + monster.name + '&font=lobster'
+        //     });
+        // } else {
+        //     Scores = [];
+        //     Scores.push({
+        //         'name': monster.name,
+        //         'hit_points': monster.hit_points,
+        //         'hit_dice': monster.hit_dice,
+        //         'challenge_rating': monster.challenge_rating,
+        //         'imageUrl': 'https://fakeimg.pl/200x200/ff0000,128/333333,255/?text=' + monster.name + '&font=lobster'
+        //     });
+        // }
+        localStorage.setItem('DnD2', JSON.stringify(Scores));
+
+    
 
         for (var i = 0; i < 11; i++) {
             getMonster();
