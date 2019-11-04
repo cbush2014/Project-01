@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+​
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>D&D API</title>
+</head>
+​
+
+<body>
+
+
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>
+        jQuery.ajaxPrefilter(function (options) {
+            if (options.crossDomain && jQuery.support.cors) {
+                options.url = "http://uncc-cors-proxy.herokuapp.com/" + options.url;
+            }
+        });
+    </script>
+    ​
+    <script>
+        var searchQuery = "";
+
+        // QUERY 3----MONSTERS TABLE-------------------------------------------      
+        //  from the Monsters table we can get: name, hit_points, hit_dice, challenge_rating
+        // searchQuery = "monsters/?name=Adult+Bronze+Dragon";
+
+        var monsterArray = [];
+
+        function getMonster() {
+            var rdm = Math.floor(Math.random() * 325);
+            searchQuery = "monsters/" + rdm.toString();
+
+            $.ajax({
+                url: "http://dnd5eapi.co/api/" + searchQuery,
+                method: "GET"
+            }).then(function (response) {
+
+                setMonster(response);
+            });
+
+        }
+
+        function setMonster(monster) {
+
+            monsterArray.name = monster.name;
+            monsterArray.hit_dice = monster.hit_dice;
+            monsterArray.hit_points = monster.hit_points;
+            monsterArray.challenge_rating = monster.challenge_rating;
+            console.log("--------------------------");
+            // console.log(monster.length);
+            console.log(monster.name);
+            console.log(monster.hit_dice);
+            console.log(monster.hit_points);
+            console.log("--------------------------");
+            Scores = JSON.parse(localStorage.getItem('DnD2'));
+            if (monster.challenge_rating < 1) {
+                // Easy
+            } else if (monster.challenge_rating < 4) {
+                // Medium
+            } else if (monster.challenge_rating < 9) {
+                // Hard
+            } else {
+                // INSANE
+            }
+            
+            }
+
+            if (Scores !== null) {
+                Scores.push({
+                    'name': monster.name,
+                    'hit_points': monster.hit_points,
+                    'hit_dice': monster.hit_dice,
+                    'challenge_rating': monster.challenge_rating,
+                    'imageUrl': 'https://fakeimg.pl/200x200/ff0000,128/333333,255/?text=' + monster.name + '&font=lobster'
+                });
+            } else {
+                Scores = [];
+                Scores.push({
+                    'name': monster.name,
+                    'hit_points': monster.hit_points,
+                    'hit_dice': monster.hit_dice,
+                    'challenge_rating': monster.challenge_rating,
+                    'imageUrl': 'https://fakeimg.pl/200x200/ff0000,128/333333,255/?text=' + monster.name + '&font=lobster'
+                });
+            }
+            localStorage.setItem('DnD2', JSON.stringify(Scores));
+
+        }
+
+        for (var i = 0; i < 11; i++) {
+            getMonster();
+        }
+
+    </script>
+</body>
+​
+
+</html>
