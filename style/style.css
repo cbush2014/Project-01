@@ -1,7 +1,7 @@
 .battle-divs {
-    border: darkslategrey;
+    border: darkgray;
     border-style: double;
-    border-width: 2vh;
+    border-width: 2vh 2vw;
 }
 
 .wrapper {
@@ -9,8 +9,9 @@
 }
 
 .RPS{
-    border: double darkslategrey;
+    border: double darkgray;
     border-width: 1vh;
+    padding-left: 1vw;
 }
 
 .monsterName {
@@ -19,15 +20,52 @@
 
 .health-box {
     background-color: #ccc;
-    height: 30px;
-    width: 500px;
+    height: 3vh;
+    width: 30vw;
     margin: 0 auto;
     border: solid 1px #aaa;
   }
 
-  .background {
-background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa4PUM0zv39Z-bEbx4EAJQuYxDcF6fhcb_OCbojY70lqpR-A5x&s");
- background-repeat: no-repeat; 
- background-size: 100%;
- height: 100%;
+  #monPortrait {
+      height: 20vh;
+      width: 15vw;
+      float: right;
+  }
+
+  #playPortrait {
+    height: 20vh;
+    width: 15vw;
+  }
+
+  body {
+      background-image: url();
+      font-family: 'Press Start 2P', cursive;
+      color: white;
+  }
+
+.battlePage {
+    background-image: url(http://i.imgur.com/Q6uJ7Pj.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+
+}
+
+.healthValues {
+    color: black;
+}
+
+.portraitPlay {
+    border-top-width: .5vh;
+}
+
+.portraitMon {
+    border-bottom-width: .5vh;
+}
+
+.background {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa4PUM0zv39Z-bEbx4EAJQuYxDcF6fhcb_OCbojY70lqpR-A5x&s");
+    background-repeat: no-repeat; 
+    background-size: 100%;
+    height: 100%;
 }
