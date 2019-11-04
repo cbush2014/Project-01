@@ -50,19 +50,20 @@
             });
 
         }
+    
 
         function setMonster(monster) {
 
             var newMonster = {};
             newMonster.name = monster.name;
-            newMonster.hit_dice = monster.hit_dice;
+            newMonster.damage_bonus = Math.floor((monster.strength / 3) + 1 ); 
             newMonster.hit_points = monster.hit_points;
             newMonster.challenge_rating = monster.challenge_rating;
             newMonster.imageUrl = 'https://fakeimg.pl/200x200/ff0000,128/333333,255/?text=' + monster.name + '&font=lobster'
             console.log("--------------------------");
-            console.log(monster)
+            console.log(monster);
             console.log(monster.name);
-            console.log(monster.hit_dice);
+            console.log(newMonster.damage_bonus);
             console.log(monster.hit_points);
             console.log(monster.challenge_rating);
             console.log("--------------------------");
