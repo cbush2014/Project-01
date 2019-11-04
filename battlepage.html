@@ -1,50 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html  class="battlePage">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hello Bulma!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    <link rel="stylesheet" href="./style/style.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style/style.css">
 </head>
 
 <body>
     <div class="container wrapper">
         <div class="columns">
-            <div class="column battle-divs" id="monHealth">
-                    <div class="health-box">
-                            <div class="monHealth-bar-red"></div>
-                            <div class="monHealth-bar-blue"></div>
-                            <div class="monHealth-bar"></div>
-                            <div class="monHealth-bar-text"></div>
-                          </div>
-                Health
+            <div class="column battle-divs" >
+                <div class="health-box">
+                    <div class="monHealth-bar-red"></div>
+                    <div class="monHealth-bar-blue"></div>
+                    <div class="monHealth-bar"></div>
+                    <div class="monHealth-bar-text"></div>
+                    <p id="monHealth" class="healthValues">100/100</p>
+                </div>
             </div>
             <div class="column battle-divs monsterName" id="monName">
                 Monster Name
             </div>
         </div>
         <div class="columns">
-            <div class="column battle-divs" id="monPortrait">
-                Portrait
+            <div class="column battle-divs portraitMon">
+                <figure class="media is-pulled-right"><img
+                        src="https://i.pinimg.com/originals/7b/ee/6d/7bee6da6a974e9539b81d3d2ef6cd89a.jpg"
+                        alt="Goblin Portrait" id="monPortrait">
+                </figure>
             </div>
         </div>
         <div class="columns">
-            <div class="column battle-divs" id="playPortrait">
-                Portrait
+            <div class="column battle-divs portraitPlay">
+                <figure class="media"><img
+                        src="https://i.pinimg.com/originals/7b/ee/6d/7bee6da6a974e9539b81d3d2ef6cd89a.jpg"
+                        alt="Goblin Portrait" id="playPortrait">
+                </figure>
             </div>
         </div>
         <div class="columns">
-            <div class="column battle-divs" id="playHealth">
-                    <div class="health-box">
-                            <div class="playHealth-bar-red"></div>
-                            <div class="playHealth-bar-blue"></div>
-                            <div class="playHealth-bar"></div>
-                            <div class="playHealth-bar-text"></div>
-                          </div>
-                Health
+            <div class="column battle-divs">
+                <div class="health-box">
+                    <div class="playHealth-bar-red"></div>
+                    <div class="playHealth-bar-blue"></div>
+                    <div class="playHealth-bar"></div>
+                    <div class="playHealth-bar-text"></div>
+                    <p id="playHealth" class="healthValues">100/100</p>
+                </div>
             </div>
             <div class="column battle-divs">
                 <div class="columns">
@@ -56,9 +63,10 @@
                         </ul>
                     </div>
                     <div class="column is-height-full">
-                        <p>
-                            Main Menu
-                        </p>
+                        <ul>
+                            <li class="RPS">Taunt</li>
+                            <li class="RPS">Menu</li>
+                        </ul>
                     </div>
 
                 </div>
