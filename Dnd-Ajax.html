@@ -24,18 +24,10 @@
   <script>
 
     var monsters = {
-      easy = {
-        goblin(); ,
+      easy :  gob(), blackBear()
 
-      },
-      mediam = {
-
-      },
-      hard = {
-
-      }
     }
-
+    console.log(monsters.easy[0])
 
 
 
@@ -49,17 +41,30 @@
         url: "http://dnd5eapi.co/api/monsters/150/",
         method: "GET"
       }).then(function (response) {
-        console.log(response.actions[0]);
+        // console.log(response.actions[0]);
         var hitPoints = response.hit_points;
         var dmgBonus = response.actions.damage_bonus;
         var dmgDice = response.actions.damage_dice;
-        var hpEL= $("<li>");
-        hpEL.text(HP);
-        console.log(HP);
+        // var hpEL = $("<li>");
+        // hpEL.text(HP);
+        // console.log(HP);
       });
     }
-    gob();
-
+    function blackBear() {
+      $.ajax({
+        url: "http://dnd5eapi.co/api/monsters/46/",
+        method: "GET"
+      }).then(function (response) {
+        // console.log(response.actions[0]);
+        var hitPoints = response.hit_points;
+        var dmgBonus = response.actions.damage_bonus;
+        var dmgDice = response.actions.damage_dice;
+        // var hpEL = $("<li>");
+        // hpEL.text(HP);
+        // console.log(HP);
+      });
+    }
+    // blackBear();
 
   </script>
 </body>
