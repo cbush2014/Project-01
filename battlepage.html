@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="full-height">
+<html class="battlePage">
 
 <head>
     <meta charset="utf-8">
@@ -14,7 +15,7 @@
 <body class="battlePage background is-full-height">  
     <div class="container wrapper">
         <div class="columns">
-            <div class="column battle-divs" >
+            <div class="column battle-divs">
                 <div class="health-box">
                     <div class="monHealth-bar-red"></div>
                     <div class="monHealth-bar-blue"></div>
@@ -57,14 +58,14 @@
                 <div class="columns">
                     <div class="column">
                         <ul id="batChoices">
-                            <li class="RPS">Fast</li>
-                            <li class="RPS">Strong</li>
-                            <li class="RPS">Counter</li>
+                            <li id="fastAttack" class="RPS">Fast</li>
+                            <li id="strongAttack" class="RPS">Strong</li>
+                            <li id="counterAttack" class="RPS">Counter</li>
                         </ul>
                     </div>
                     <div class="column is-height-full">
                         <ul>
-                            <li class="RPS">Taunt</li>
+                            <li id="tauntBtn" class="RPS">Taunt</li>
                             <li class="RPS">Menu</li>
                         </ul>
                     </div>
@@ -83,7 +84,17 @@
 
 
 </body>
-<link rel="script" href="./script/thomas_script.js">
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+<script>
+    jQuery.ajaxPrefilter(function (options) {
+        if (options.crossDomain && jQuery.support.cors) {
+            options.url = 'http://uncc-cors-proxy.herokuapp.com/' + options.url;
+        }
+    });
+</script>
+<script src="./script/thomas_script.js"></script>
+<!-- <link rel="script" href="./script/thomas_script.js"> -->
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
 </html>
