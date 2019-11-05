@@ -12,7 +12,7 @@ var monDmg = Math.floor(Math.random() + 7);
 var monName = Monster.name;
 $("#monName").text(monName);
 
-function defeat (){
+function defeat() {
     window.location.replace("./index.html")
 }
 
@@ -47,7 +47,7 @@ rockPS = function (guess) {//-- the Battle System; rock, paper, scissors basical
     if ((userGuess === "f" && computerGuess === "s") ||
         (userGuess === "s" && computerGuess === "c") ||
         (userGuess === "c" && computerGuess === "f")) {
-
+        $('audio#barb')[0].play();
         var curMONHealth = $("#monHealth").text() - barDmg;
         $("#monHealth").text(curMONHealth);
         if (curMONHealth = 0 || curMONHealth < 0) {
@@ -55,7 +55,7 @@ rockPS = function (guess) {//-- the Battle System; rock, paper, scissors basical
         }
 
     } else if (userGuess === computerGuess) {
-
+        $('audio#barbdamaged')[0].play();
         var curMONHealth = $("#monHealth").text() - Math.floor((barDmg / 2));
         $("#monHealth").text(curMONHealth);
         if (curMONHealth = 0 || curMONHealth < 0) {
@@ -63,19 +63,20 @@ rockPS = function (guess) {//-- the Battle System; rock, paper, scissors basical
         }
         var curPlayHealth = $("#playHealth").text() - Math.floor((monDmg / 2));
         $("#playHealth").text(curPlayHealth);
-        if (curPlayHealth = 0 || curPlayHealth < 0){
+        if (curPlayHealth = 0 || curPlayHealth < 0) {
             defeat();
         }
 
     } else {
-
+        $('audio#barbdamaged')[0].play();
         var curPlayHealth = $("#playHealth").text() - monDmg;
         $("#playHealth").text(curPlayHealth);
-        if (curPlayHealth = 0 || curPlayHealth < 0){
+        if (curPlayHealth = 0 || curPlayHealth < 0) {
             defeat();
         }
     }
 }
+
 // Taunt Button
 //Calling the Insult API, putting it into a function
 function generatePlayInsult() {
