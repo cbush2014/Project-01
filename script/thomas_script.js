@@ -10,7 +10,7 @@ var Monster = getRandomBattleMonsterFromArray(easy);
     var MonsterHealth = Monster.hit_points;
     var monDmg = Monster.damage_bonus;
     var monName = Monster.name;
-
+    $("#monName").text(monName);
 
 
 
@@ -19,8 +19,9 @@ function battleTime (){
     var MonsterHealth = Monster.hit_points;
     var monDmg = Monster.damage_bonus;
     var monName = Monster.name;
+    $("#monHealth").text(MonsterHealth);
     $("#monName").text(monName);
-    $("#play").text(BarProp);
+    $("#playHealth").text(BarHealth);
     return MonsterHealth, monDmg;
 }
 
@@ -48,7 +49,7 @@ rockPS = function (guess) {//-- the Battle System; rock, paper, scissors basical
         
         var curMONHealth = $("#monHealth").text() - barDmg;
         $("#monHealth").text(curMONHealth);
-        if (curMONHealth <= 0){
+        if (curMONHealth = 0 || curMONHealth < 0){
             battleTime();
         }
 
