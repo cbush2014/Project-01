@@ -51,6 +51,25 @@ $("document").ready(generateMonInsult());
 //     }
 // }
 
+Barbar = {
+    hitpoints: 37,
+    damage: 11,
+}
+
+Monster = {
+    hitpoints: 12,
+    damage: 2,
+}
+
+BarHealth = Barbar.hitpoints;
+MonsterHealth = Monster.hitpoints;
+barDmg = Barbar.damage;
+monDmg = Monster.damage;
+
+$("#playHealth").text(BarHealth);
+
+$("#monHealth").text(MonsterHealth);
+
 // //-- Health Points Bar for Player
 // var maxplayHealth = 500, //-- needs to change when player stats are put in
 //     curplayHealth = maxplayHealth;
@@ -143,4 +162,5 @@ function generateMonInsult(){
         $("#monTaunt").text(response);
     })
 };
+
 
