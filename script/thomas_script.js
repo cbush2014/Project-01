@@ -1,4 +1,73 @@
 
+// //-- Health Points Bar for Player
+// var maxplayHealth = 500, //-- needs to change when player stats are put in
+//     curplayHealth = maxplayHealth;
+// $('.playHealth').html(maxplayHealth + "/" + maxplayHealth);
+// $(".playHealth-bar-text").html("100%");
+// $(".playHealth-bar").css({
+//     "width": "100%"
+// });
+
+// function heroDmged() {//-- the function for changing the health of the player when battle executes
+//     if (curplayHealth > 0) {
+//         var damage = Math.floor((Math.random() * 100) + 50);//--this needs to change to monster damage
+//         $(".playHealth-bar-red, .playHealth-bar").stop();
+//         curplayHealth = curplayHealth - damage;
+
+//         applyChangeHero(curplayHealth);
+//     }
+// };
+
+// function applyChangeHero(curplayHealth) {//-- the function for changing the player health element
+//     var a = curplayHealth * (100 / maxplayHealth);
+//     $(".playHealth-bar-text").html(Math.round(a) + "%");
+//     $(".playHealth-bar-red").animate({
+//         'width': a + "%"
+//     }, 700);
+//     $(".playHealth-bar").animate({
+//         'width': a + "%"
+//     }, 500);
+//     $(".playHealth-bar-blue").animate({
+//         'width': a + "%"
+//     }, 300);
+//     $('.playHealth').html(curplayHealth + "/" + maxplayHealth);
+// }
+
+// //--Health Points Bar for Monster
+// var maxMonHealth = 100;
+// var curMonHealth = maxMonHealth;
+// $('.monHealth').html(maxMonHealth + "/" + maxMonHealth);
+// $(".monHealth-bar-text").html("100%");
+// $(".monHealth-bar").css({
+//     "width": "100%"
+// });
+
+
+// function monsterDmged() { //-- the function for changing the health of the monster when battle executes
+//     if (curMonHealth > 0) {
+//         var damage = Math.floor((Math.random() * 100) + 50); //-- damage from the players stats
+//         $(".monHealth-bar-red, .monHealth-bar").stop();
+//         curMonHealth = curMonHealth - damage;
+
+//         applyChangeMon(curMONHealth);
+//     }
+// };
+
+
+// function applyChangeMon(curMonHealth) {//-- the function for changing the monster health element
+//     var a = curMonHealth * (100 / maxMonHealth);
+//     $(".monHealth-bar-text").html(Math.round(a) + "%");
+//     $(".monHealth-bar-red").animate({
+//         'width': a + "%"
+//     }, 700);
+//     $(".monHealth-bar").animate({
+//         'width': a + "%"
+//     }, 500);
+//     $(".monHealth-bar-blue").animate({
+//         'width': a + "%"
+//     }, 300);
+//     $('.monHealth').html(curMonHealth + "/" + maxMonHealth);
+// }
 // var victoryCounter = 0;//-- a way to keep track of the wins so we can progress to the next difficulty
 
 // rockPS = function (guess) {//-- the Battle System; rock, paper, scissors basically.
@@ -51,87 +120,15 @@
 //     }
 // }
 
-// //-- Health Points Bar for Player
-// $ = jQuery;
-// var maxplayHealth = 500, //-- needs to change when player stats are put in
-//     curplayHealth = maxplayHealth;
-// $('.playHealth').html(maxplayHealth + "/" + maxplayHealth);
-// $(".playHealth-bar-text").html("100%");
-// $(".playHealth-bar").css({
-//     "width": "100%"
-// });
-
-// function heroDmged() {//-- the function for changing the health of the player when battle executes
-//     if (curplayHealth > 0) {
-//         var damage = Math.floor((Math.random() * 100) + 50);//--this needs to change to monster damage
-//         $(".playHealth-bar-red, .playHealth-bar").stop();
-//         curplayHealth = curplayHealth - damage;
-
-//         applyChangeHero(curplayHealth);
-//     }
-// };
-
-// function applyChangeHero(curplayHealth) {//-- the function for changing the player health element
-//     var a = curplayHealth * (100 / maxplayHealth);
-//     $(".playHealth-bar-text").html(Math.round(a) + "%");
-//     $(".playHealth-bar-red").animate({
-//         'width': a + "%"
-//     }, 700);
-//     $(".playHealth-bar").animate({
-//         'width': a + "%"
-//     }, 500);
-//     $(".playHealth-bar-blue").animate({
-//         'width': a + "%"
-//     }, 300);
-//     $('.playHealth').html(curplayHealth + "/" + maxplayHealth);
-// }
-
-// //--Health Points Bar for Monster
-// $ = jQuery;
-// var maxMonHealth = newMonster.hit_points,
-//     curMonHealth = maxMonHealth;
-// $('.monHealth').html(maxMonHealth + "/" + maxMonHealth);
-// $(".monHealth-bar-text").html("100%");
-// $(".monHealth-bar").css({
-//     "width": "100%"
-// });
-
-
-// function monsterDmged() { //-- the function for changing the health of the monster when battle executes
-//     if (curMonHealth > 0) {
-//         var damage = Math.floor((Math.random() * 100) + 50); //-- damage from the players stats
-//         $(".monHealth-bar-red, .monHealth-bar").stop();
-//         curMonHealth = curMonHealth - damage;
-        
-//         applyChangeMon(curMONHealth);
-//     }
-// };
-
-
-// function applyChangeMon(curMonHealth) {//-- the function for changing the monster health element
-//     var a = curMonHealth * (100 / maxMonHealth);
-//     $(".monHealth-bar-text").html(Math.round(a) + "%");
-//     $(".monHealth-bar-red").animate({
-//         'width': a + "%"
-//     }, 700);
-//     $(".monHealth-bar").animate({
-//         'width': a + "%"
-//     }, 500);
-//     $(".monHealth-bar-blue").animate({
-//         'width': a + "%"
-//     }, 300);
-//     $('.monHealth').html(curMonHealth + "/" + maxMonHealth);
-// }
 
 // Taunt Button
-$("#tauntBtn").on("click", generate_insult())  
+$("#taunt").on("click", insult())
 //Calling the Insult API, putting it into a function
-function generate_insult(){
+function insult() {
     $.ajax({
         url: "http://evilinsult.com/generate_insult.php?lang=en&type=JSON",
         method: "GET"
-    }).then(function(response){
-        console.log(response); 
+    }).then(function (response) {
+        $("#right").text(response)
     })
 }
-generate_insult();
