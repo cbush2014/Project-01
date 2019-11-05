@@ -87,3 +87,11 @@
 #monName {
     background: darkgray;
 }
+
+.taunt {
+    color: white;
+}
+
+.playTaunt {
+    text-align: right;
+}
