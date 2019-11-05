@@ -67,14 +67,18 @@
                 <div class="columns">
                     <div class="column">
                         <ul id="batChoices">
-                            <li id="fastAttack" class="RPS" type="button" >Fast</li>
-                            <li id="strongAttack" class="RPS" type="button">Strong</li>
-                            <li id="counterAttack" class="RPS" type="button">Counter</li>
+                            <li id="fastAttack" onclick=rockPS(f) class="RPS">Fast</li>
+                            <li id="strongAttack" onclick=rockPS(s) class="RPS">Strong</li>
+                            <li id="counterAttack" onclick=rockPS(c) class="RPS">Counter</li>
                         </ul>
                     </div>
                     <div class="column is-height-full">
                         <ul>
+<<<<<<< HEAD
                             <li id="tauntBtn" class="RPS" type="button" onclick=generatePlayInsult()>Taunt</li>
+=======
+                            <li id="taunt" class="RPS" type="button" onclick=insult()>Taunt</li>
+>>>>>>> ef5bac95a19992032f920323d9e340bbf10d34ba
                             <li class="RPS">Menu</li>
                         </ul>
                     </div>
@@ -85,16 +89,10 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
+
 <script>
     jQuery.ajaxPrefilter(function (options) {
         if (options.crossDomain && jQuery.support.cors) {
@@ -103,7 +101,6 @@
     });
 </script>
 <script src="./script/thomas_script.js"></script>
-<!-- <link rel="script" href="./script/thomas_script.js"> -->
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
 </html>
