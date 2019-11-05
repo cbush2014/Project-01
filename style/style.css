@@ -67,7 +67,7 @@
 .background {
     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa4PUM0zv39Z-bEbx4EAJQuYxDcF6fhcb_OCbojY70lqpR-A5x&s");
     background-repeat: no-repeat; 
-    background-size: 100%;
+    background-size: cover;
     height: 100%;
 }
 
