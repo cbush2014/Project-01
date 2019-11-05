@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="full-height">
-<html class="battlePage">
+<html lang="en" class="full-height battlePage">
 
 <head>
     <meta charset="utf-8">
@@ -28,20 +27,30 @@
                 Monster Name
             </div>
         </div>
-        <div class="columns">
-            <div class="column battle-divs portraitMon">
+        <div class="columns battle-divs">
+            <div class="column monTaunt taunt" id="monTaunt">
+                <p>
+                    Taunt
+                </p>
+            </div>
+            <div class="column portraitMon">
                 <figure class="media is-pulled-right"><img
                         src="https://i.pinimg.com/originals/7b/ee/6d/7bee6da6a974e9539b81d3d2ef6cd89a.jpg"
                         alt="Goblin Portrait" id="monPortrait">
                 </figure>
             </div>
         </div>
-        <div class="columns">
-            <div class="column battle-divs portraitPlay">
+        <div class="columns battle-divs">
+            <div class="column portraitPlay">
                 <figure class="media"><img
                         src="https://i.pinimg.com/originals/7b/ee/6d/7bee6da6a974e9539b81d3d2ef6cd89a.jpg"
                         alt="Goblin Portrait" id="playPortrait">
                 </figure>
+            </div>
+            <div class="column playTaunt taunt is-pulled-right" id="playTaunt">
+                <p>
+                    Taunt
+                </p>
             </div>
         </div>
         <div class="columns">
@@ -58,14 +67,14 @@
                 <div class="columns">
                     <div class="column">
                         <ul id="batChoices">
-                            <li id="fastAttack" class="RPS">Fast</li>
-                            <li id="strongAttack" class="RPS">Strong</li>
-                            <li id="counterAttack" class="RPS">Counter</li>
+                            <li id="fastAttack" class="RPS" type="button" >Fast</li>
+                            <li id="strongAttack" class="RPS" type="button">Strong</li>
+                            <li id="counterAttack" class="RPS" type="button">Counter</li>
                         </ul>
                     </div>
                     <div class="column is-height-full">
                         <ul>
-                            <li id="tauntBtn" class="RPS">Taunt</li>
+                            <li id="tauntBtn" class="RPS" type="button" onclick=generate_insult()>Taunt</li>
                             <li class="RPS">Menu</li>
                         </ul>
                     </div>
