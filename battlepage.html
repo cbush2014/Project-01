@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
+    <title>Clear the Dungeon!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
                     <div class="monHealth-bar-blue"></div>
                     <div class="monHealth-bar"></div>
                     <div class="monHealth-bar-text"></div>
-                    <p id="monHealth" class="healthValues">100/100</p>
+                    <p id="monHealth" class="healthValues"></p>
                 </div>
             </div>
             <div class="column battle-divs monsterName" id="monName">
@@ -28,8 +28,8 @@
             </div>
         </div>
         <div class="columns battle-divs">
-            <div class="column monTaunt taunt" id="monTaunt">
-                <p>
+            <div class="column monTaunt taunt">
+                <p id="monTaunt">
                     Taunt
                 </p>
             </div>
@@ -47,8 +47,8 @@
                         alt="Goblin Portrait" id="playPortrait">
                 </figure>
             </div>
-            <div class="column playTaunt taunt is-pulled-right" id="playTaunt">
-                <p>
+            <div class="column playTaunt taunt is-pulled-right">
+                <p id="playTaunt">
                     Taunt
                 </p>
             </div>
@@ -60,21 +60,21 @@
                     <div class="playHealth-bar-blue"></div>
                     <div class="playHealth-bar"></div>
                     <div class="playHealth-bar-text"></div>
-                    <p id="playHealth" class="healthValues">100/100</p>
+                    <p id="playHealth" class="healthValues"></p>
                 </div>
             </div>
             <div class="column battle-divs">
                 <div class="columns">
                     <div class="column">
                         <ul id="batChoices">
-                            <li id="fastAttack" class="RPS" type="button" >Fast</li>
-                            <li id="strongAttack" class="RPS" type="button">Strong</li>
-                            <li id="counterAttack" class="RPS" type="button">Counter</li>
+                            <li id="fastAttack" onclick="rockPS('f')" type="button" class="RPS">Fast</li>
+                            <li id="strongAttack" onclick="rockPS('s')" type="button" class="RPS">Strong</li>
+                            <li id="counterAttack" onclick="rockPS('c')" type="button" class="RPS">Counter</li>
                         </ul>
                     </div>
                     <div class="column is-height-full">
                         <ul>
-                            <li id="tauntBtn" class="RPS" type="button" onclick=generate_insult()>Taunt</li>
+                            <li id="tauntBtn" class="RPS" type="button" onclick=generatePlayInsult()>Taunt</li>
                             <li class="RPS">Menu</li>
                         </ul>
                     </div>
@@ -85,16 +85,10 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
+
 <script>
     jQuery.ajaxPrefilter(function (options) {
         if (options.crossDomain && jQuery.support.cors) {
@@ -103,7 +97,6 @@
     });
 </script>
 <script src="./script/thomas_script.js"></script>
-<!-- <link rel="script" href="./script/thomas_script.js"> -->
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
 </html>
