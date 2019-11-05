@@ -1,4 +1,23 @@
 
+Barbar = {
+    hitpoints: 37,
+    damage: 11,
+}
+
+Monster = {
+    hitpoints: 12,
+    damage: 2,
+}
+
+BarHealth = Barbar.hitpoints;
+MonsterHealth = Monster.hitpoints;
+barDmg = Barbar.damage;
+monDmg = Monster.damage;
+
+$("#playHealth").text(BarHealth);
+
+$("#monHealth").text(MonsterHealth);
+
 // //-- Health Points Bar for Player
 // var maxplayHealth = 500, //-- needs to change when player stats are put in
 //     curplayHealth = maxplayHealth;
@@ -70,43 +89,55 @@
 // }
 // var victoryCounter = 0;//-- a way to keep track of the wins so we can progress to the next difficulty
 
-// rockPS = function (guess) {//-- the Battle System; rock, paper, scissors basically.
-//     var monsterAttacks = ["f", "s", "c"];
+rockPS = function (guess) {//-- the Battle System; rock, paper, scissors basically.
+    var monsterAttacks = ["f", "s", "c"];
 
-//     // Randomly chooses a choice from the options array. This is the Computer's guess.
-//     var computerGuess = monsterAttacks[Math.floor(Math.random() * monsterAttacks.length)];
-//     var userGuess = guess;
-//     // Win/lose conditions:
-//     if ((userGuess === "f" && computerGuess === "s") ||
-//         (userGuess === "s" && computerGuess === "c") ||
-//         (userGuess === "c" && computerGuess === "f")) {
+    // Randomly chooses a choice from the options array. This is the Computer's guess.
+    var computerGuess = monsterAttacks[Math.floor(Math.random() * monsterAttacks.length)];
+    var userGuess = guess;
+    // Win/lose conditions:
+    if ((userGuess === "f" && computerGuess === "s") ||
+        (userGuess === "s" && computerGuess === "c") ||
+        (userGuess === "c" && computerGuess === "f")) {
+            alert("win");
 
-//         monsterDmged();//-- deal damage to monster
-//         victory();
+            var curMonsterHealth = $("#monHealth").val() - barDmg;
+            
+            $("monHealth").text(curMonsterHealth);
 
-//     } else if (userGuess === computerGuess) {
+            console.log(curMonsterHealth);
 
-//         monsterDmged();
-//         heroDmged();
-//         gameOver();
-//         victory();
+        // monsterDmged();//-- deal damage to monster
+        // victory();
 
-//     } else {
+    } else if (userGuess === computerGuess) {
+        alert("tie");
 
-//         heroDmged(); // deal damage to character
-//         gameOver();
+        // monsterDmged();
+        // heroDmged();
+        // gameOver();
+        // victory();
 
-//     }
-// }
+    } else {
+        alert("lose");
+        var curBarHealth = BarHealth - monDmg;
+        console.log(curBarHealth);
+        // heroDmged(); // deal damage to character
+        // gameOver();
+
+    }
+}
 
 // //-- RPS code
-// $("#fastAttack").on("click", rockPS("f"))
+// $("#fastAttack").on("click", function(){
+//     rockPS("f")
+// });
 
-// $("#strongAttack").on("click", rockPS("s"))
+// $("#strongAttack").on("click", rockPS("s"));
 
-// $("#counterAttack").on("click", rockPS("c"))
+// $("#counterAttack").on("click", rockPS("c"));
 
-// //-- Victory and Game Over functions
+//-- Victory and Game Over functions
 // function gameOver() {
 //     if (curplayHealth <= 0) {
 //         window.document.replace("../index.html")
@@ -122,13 +153,15 @@
 
 
 // Taunt Button
-$("#taunt").on("click", insult())
+$("#taunt").on("click", insult)
 //Calling the Insult API, putting it into a function
 function insult() {
     $.ajax({
         url: "http://evilinsult.com/generate_insult.php?lang=en&type=JSON",
         method: "GET"
     }).then(function (response) {
-        $("#right").text(response)
+        console.log(response);
+        $("#playtaunt").text(response);
+         
     })
 }
