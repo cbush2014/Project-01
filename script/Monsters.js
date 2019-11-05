@@ -90,10 +90,10 @@
             monsterArray[1].push(newMonster);
         } else if (monster.challenge_rating < hardThreshold) {
             // Hard
-            monsterArray[2].push(newMonster);
+            // monsterArray[2].push(newMonster);
         } else {
             // INSANE
-            monsterArray[3].push(newMonster);
+            // monsterArray[3].push(newMonster);
         }
 
         localStorage.setItem('DnD', JSON.stringify(monsterArray));
@@ -142,3 +142,11 @@
     //             $('body').css('background-image', "url('" + image_src + "')");
     //         });
     // });
+
+
+    function myFunction() {
+        var str = document.getElementById("demo").innerHTML; 
+        var txt = str.replace("Microsoft","W3Schools");
+        document.getElementById("demo").innerHTML = txt;
+
+    }
