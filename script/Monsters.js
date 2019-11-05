@@ -124,7 +124,7 @@
     }
 
     $(document).ready(loadMonsterArrays);
-    $(document).ready(getRandomBattleMonsterFromArray(easy);
+    $(document).ready(getRandomBattleMonsterFromArray(easy));
     console.log(getRandomBattleMonsterFromArray(easy));
 
     
