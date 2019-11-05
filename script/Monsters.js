@@ -106,7 +106,7 @@
     // 
     function getRandomBattleMonsterFromArray(difficulty) {
      
-        var rdm = Math.ceil(Math.random() * (monsterArray[difficulty].length));
+        var rdm = Math.floor(Math.random() * (monsterArray[difficulty].length));
         return monsterArray[difficulty][rdm];
     }
 
@@ -123,6 +123,11 @@
         $("#monsterIMG").attr("src", "https://www.google.com/search?q=bear&rlz=1C1CHBF_enUS862US862&sxsrf=ACYBGNSBan4k1p_d33NN_QsW_NYNWsf8BQ:1572891437079&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjz_YGbldHlAhUHZd8KHaZDDXEQ_AUIEigB&biw=1536&bih=722")
     }
 
+    $(document).ready(loadMonsterArrays);
+    $(document).ready(getRandomBattleMonsterFromArray(easy));
+    console.log(getRandomBattleMonsterFromArray(easy));
+
+    
     // var keyword = monster.name;
     // $(document).ready(function () {
     //     $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
