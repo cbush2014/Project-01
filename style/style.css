@@ -1,5 +1,5 @@
 .battle-divs {
-    border: darkgray;
+    border: rgb(100, 100, 100);
     border-style: double;
     border-width: 2vh 2vw;
 }
@@ -9,9 +9,11 @@
 }
 
 .RPS{
-    border: double darkgray;
+    border: double rgb(100, 100, 100);
     border-width: 1vh;
     padding-left: 1vw;
+    background: darkgray;
+    margin: 1vh;
 }
 
 .monsterName {
@@ -38,9 +40,8 @@
   }
 
   body {
-      background-image: url();
       font-family: 'Press Start 2P', cursive;
-      color: white;
+      color: black;
   }
 
 .battlePage {
@@ -56,11 +57,11 @@
 }
 
 .portraitPlay {
-    border-top-width: .5vh;
+    border-top-width: 0;
 }
 
 .portraitMon {
-    border-bottom-width: .5vh;
+    border-bottom-width: 0;
 }
 
 .background {
@@ -68,4 +69,8 @@
     background-repeat: no-repeat; 
     background-size: 100%;
     height: 100%;
+}
+
+#monName {
+    background: darkgray;
 }
