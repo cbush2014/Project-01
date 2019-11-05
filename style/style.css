@@ -44,13 +44,7 @@
       color: black;
   }
 
-.battlePage {
-    background-image: url(http://i.imgur.com/Q6uJ7Pj.gif);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100%;
 
-}
 
 .healthValues {
     color: black;
@@ -69,8 +63,35 @@
     background-repeat: no-repeat; 
     background-size: cover;
     height: 100%;
+    width: 100%;
+    background-attachment: fixed;
+}
+
+.battlePage {
+    background-image: url(http://i.imgur.com/Q6uJ7Pj.gif);
+}
+
+.image{
+    width: 50%;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width:762px) {
+    /* For mobile phones: */
+   .background {
+      width: auto;
+      height: auto;
+    } 
 }
 
 #monName {
     background: darkgray;
+}
+
+.taunt {
+    color: white;
+}
+
+.playTaunt {
+    text-align: right;
 }

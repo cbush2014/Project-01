@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="battlePage">
+<html lang="en" class="full-height battlePage">
 
 <head>
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./style/style.css">
 </head>
 
-<body>
+<body class="battlePage background is-full-height">  
     <div class="container wrapper">
         <div class="columns">
             <div class="column battle-divs">
@@ -27,20 +27,30 @@
                 Monster Name
             </div>
         </div>
-        <div class="columns">
-            <div class="column battle-divs portraitMon">
+        <div class="columns battle-divs">
+            <div class="column monTaunt taunt" id="monTaunt">
+                <p>
+                    Taunt
+                </p>
+            </div>
+            <div class="column portraitMon">
                 <figure class="media is-pulled-right"><img
                         src="https://i.pinimg.com/originals/7b/ee/6d/7bee6da6a974e9539b81d3d2ef6cd89a.jpg"
                         alt="Goblin Portrait" id="monPortrait">
                 </figure>
             </div>
         </div>
-        <div class="columns">
-            <div class="column battle-divs portraitPlay">
+        <div class="columns battle-divs">
+            <div class="column portraitPlay">
                 <figure class="media"><img
                         src="https://i.pinimg.com/originals/7b/ee/6d/7bee6da6a974e9539b81d3d2ef6cd89a.jpg"
                         alt="Goblin Portrait" id="playPortrait">
                 </figure>
+            </div>
+            <div class="column playTaunt taunt is-pulled-right" id="playTaunt">
+                <p>
+                    Taunt
+                </p>
             </div>
         </div>
         <div class="columns">
