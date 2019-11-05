@@ -1,6 +1,40 @@
 $("document").ready(generateMonInsult());
 // var victoryCounter = 0;//-- a way to keep track of the wins so we can progress to the next difficulty
 
+Barbar = {
+    hitpoints: 37,
+    damage: 11,
+}
+
+var Monster = getRandomBattleMonsterFromArray(easy);
+    var MonsterHealth = Monster.hit_points;
+    var monDmg = Monster.damage_bonus;
+    var monName = Monster.name;
+
+
+
+
+function battleTime (){
+    var Monster = getRandomBattleMonsterFromArray(easy);
+    var MonsterHealth = Monster.hit_points;
+    var monDmg = Monster.damage_bonus;
+    var monName = Monster.name;
+    $("#monName").text(monName);
+    $("#play").text(BarProp);
+    return MonsterHealth, monDmg;
+}
+
+
+console.log(Monster);
+console.log(Monster.hit_points);
+console.log(Monster.damage_bonus);
+
+BarHealth = Barbar.hitpoints;
+barDmg = Barbar.damage;
+
+$("#playHealth").text(BarHealth);
+$("#monHealth").text(MonsterHealth);
+
 rockPS = function (guess) {//-- the Battle System; rock, paper, scissors basically.
     var monsterAttacks = ["f", "s", "c"];
 
@@ -14,6 +48,9 @@ rockPS = function (guess) {//-- the Battle System; rock, paper, scissors basical
         
         var curMONHealth = $("#monHealth").text() - barDmg;
         $("#monHealth").text(curMONHealth);
+        if (curMONHealth <= 0){
+            battleTime();
+        }
 
     } else if (userGuess === computerGuess) {
 
@@ -44,25 +81,6 @@ rockPS = function (guess) {//-- the Battle System; rock, paper, scissors basical
 //         //-- call function the will bring up a new monster
 //     }
 // }
-
-Barbar = {
-    hitpoints: 37,
-    damage: 11,
-}
-
-Monster = {
-    hitpoints: 12,
-    damage: 2,
-}
-
-BarHealth = Barbar.hitpoints;
-MonsterHealth = Monster.hitpoints;
-barDmg = Barbar.damage;
-monDmg = Monster.damage;
-
-$("#playHealth").text(BarHealth);
-
-$("#monHealth").text(MonsterHealth);
 
 // //-- Health Points Bar for Player
 // var maxplayHealth = 500, //-- needs to change when player stats are put in
