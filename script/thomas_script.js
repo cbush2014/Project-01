@@ -84,8 +84,8 @@ function generatePlayInsult() {
         url: "http://evilinsult.com/generate_insult.php?lang=en&type=JSON",
         method: "GET"
     }).then(function (response) {
-        console.log(response);
-        $("#playTaunt").text(response);
+        // console.log(response);
+        $("#playTaunt").text(CleanInsult(response));
     })
 };
 
@@ -94,9 +94,26 @@ function generateMonInsult() {
         url: "http://evilinsult.com/generate_insult.php?lang=en&type=JSON",
         method: "GET"
     }).then(function (response) {
-        console.log(response);
-        $("#monTaunt").text(response);
+        // console.log(response);
+        $("#monTaunt").text(CleanInsult(response));
     })
 };
 
+// Create function to clean up some of the really bad word returned from the insult generator
+function CleanInsult(reallybadphrase) {
+
+    var str = reallybadphrase
+    str = str.replace(/whore's soiled tampon/i,"call girl's soiled Napkin.")
+    str = str.replace(/motherfucker/gi, "goofball")
+    str = str.replace("asshole","backend");
+    str = str.replace(/testicles/gi,"privates")
+    str = str.replace(/fuck/gi, "jerk")
+    str = str.replace(/&quot;/gi, "'")
+    str = str.replace(/&gt;/gi, ">")
+    str = str.replace(/ass/gi,"dork")
+    str = str.replace(/&amp;/gi,"&")
+    str = str.replace(/dick/gi,"willy")
+    str = str.replace(/crap/gi,"poop")
+    return str;    
+}
 
