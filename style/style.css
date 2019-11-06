@@ -29,13 +29,12 @@
   }
 
   #monPortrait {
-      height: 20vh;
+      height: 15vw;
       width: 15vw;
-      float: right;
   }
 
   #playPortrait {
-    height: 20vh;
+    height: 15vw;
     width: 15vw;
   }
 
@@ -44,10 +43,14 @@
       color: black;
   }
 
+.heroName {
+    text-align: center;
+}
 
 
 .healthValues {
     color: black;
+    text-align: center;
 }
 
 .portraitPlay {
@@ -82,8 +85,10 @@
     /* For mobile phones: */
    .background {
       width: auto;
-      height: auto;
+      height: 100%;
     } 
+
+
 }
 
 #monName {
@@ -97,3 +102,21 @@
 .playTaunt {
     text-align: right;
 }
+
+.mainMenuReturn {
+    color: black;
+}
+
+.startGame {
+    color: black;
+    font-size: 75%;
+}
+
+.startGame:hover {
+    color: goldenrod;
+}
+
+.batPageText {
+    font-size: 1.5vw;
+}
+

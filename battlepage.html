@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="full-height battlePage">
+<html lang="en" class="is-full-height battlePage">
 
 <head>
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
 </head>
 
 <body class="battlePage background is-full-height">
-    <div class="container wrapper">
+    <div class="container wrapper is-full-height">
         <div class="columns">
             <div class="column battle-divs">
                 <div class="health-box">
@@ -20,36 +20,42 @@
                     <div class="monHealth-bar-blue"></div>
                     <div class="monHealth-bar"></div>
                     <div class="monHealth-bar-text"></div>
-                    <p id="monHealth" class="healthValues"></p>
+                    <p id="monHealth" class="healthValues batPageText"></p>
                 </div>
             </div>
             <div class="column battle-divs monsterName">
-                <p id="monName"> Monster Name</p>
+                <p id="monName" class="batPageText"> Monster Name</p>
             </div>
         </div>
         <div class="columns battle-divs">
             <div class="column monTaunt taunt">
-                <p id="monTaunt">
-                    Taunt
+                <p id="monTaunt" class="batPageText">
+
                 </p>
             </div>
             <div class="column portraitMon">
-                <figure class="media is-pulled-right"><img
-                        src="https://i.pinimg.com/originals/7b/ee/6d/7bee6da6a974e9539b81d3d2ef6cd89a.jpg"
-                        alt="Goblin Portrait" id="monPortrait">
-                </figure>
+                <div class="media is-pulled-right column"><img src="" alt="Goblin Portrait" id="monPortrait">
+                </div>
             </div>
         </div>
-        <div class="columns battle-divs">
-            <div class="column portraitPlay">
-                <figure class="media"><img
-                        src="https://i.pinimg.com/originals/7b/ee/6d/7bee6da6a974e9539b81d3d2ef6cd89a.jpg"
-                        alt="Goblin Portrait" id="playPortrait">
-                </figure>
+        <div class="columns is-centered is-marginless">
+            <div class="column RPS batPageText is-two-thirds-mobile is-one-half-tablet is-four-fifths-widescreen is-centered-mobile">
+                <p id="choiceDisplay">
+                    Conclusion
+                </p>
+            </div>
+        </div>
+        <br>
+        <div class="columns battle-divs Score">
+            <div class="column portraitPlay is-narrow Score">
+                <div class="media column"><img
+                        src="https://cdna.artstation.com/p/assets/images/images/000/383/316/large/louis-ting-150103-barbarian-portrait.jpg?1420286823"
+                        alt="Barbarian Portrait" id="playPortrait">
+                </div>
             </div>
             <div class="column playTaunt taunt is-pulled-right">
-                <p id="playTaunt">
-                    Taunt
+                <p id="playTaunt" class="batPageText">
+
                 </p>
             </div>
         </div>
@@ -60,22 +66,31 @@
                     <div class="playHealth-bar-blue"></div>
                     <div class="playHealth-bar"></div>
                     <div class="playHealth-bar-text"></div>
-                    <p id="playHealth" class="healthValues"></p>
+                    <p id="playHealth" class="healthValues batPageText"></p>
                 </div>
             </div>
             <div class="column battle-divs">
                 <div class="columns">
                     <div class="column">
                         <ul id="batChoices">
-                            <li id="fastAttack" onclick="rockPS('f')" type="button" class="RPS">Fast</li>
-                            <li id="strongAttack" onclick="rockPS('s')" type="button" class="RPS">Strong</li>
-                            <li id="counterAttack" onclick="rockPS('c')" type="button" class="RPS">Counter</li>
+                            <li id="fastAttack" onclick="rockPS('Fast Attack')" type="button" class="RPS batPageText">
+                                Fast</li>
+                            <li id="strongAttack" onclick="rockPS('Strong Attack')" type="button"
+                                class="RPS batPageText">Strong</li>
+                            <li id="counterAttack" onclick="rockPS('Counter')" type="button" class="RPS batPageText">
+                                Counter</li>
                         </ul>
                     </div>
                     <div class="column is-height-full">
                         <ul>
-                            <li id="tauntBtn" class="RPS" type="button" onclick="generatePlayInsult()">Taunt</li>
-                            <li class="RPS">Menu</li>
+                            <li id="tauntBtn" class="RPS batPageText" type="button" onclick="generatePlayInsult()">
+                                Taunt
+                            </li>
+                            <li class="RPS" type="button">
+                                <a href="index.html" class="mainMenuReturn batPageText">
+                                    Main Menu
+                                </a>
+                            </li>
                         </ul>
                     </div>
 
