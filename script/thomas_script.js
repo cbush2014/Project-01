@@ -25,6 +25,13 @@ function battleTime() {
     $("#monName").text(monName);
     $("#playHealth").text(BarHealth);
     $("#monPortrait").attr("src", monsterPortraits[Math.floor(Math.random() * monsterPortraits.length)]);
+    $.ajax({
+        url: "http://evilinsult.com/generate_insult.php?lang=en&type=JSON",
+        method: "GET"
+    }).then(function (response) {
+        // console.log(response);
+        $("#monTaunt").text(CleanInsult(response));
+    });
     return MonsterHealth, monDmg;
 }
 
