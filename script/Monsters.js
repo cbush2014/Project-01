@@ -112,7 +112,11 @@
 
 
     function loadMonsterArrays() {
+<<<<<<< HEAD
         for (var i = 1; i < 31; i++) {
+=======
+        for (var i = 1; i < 10; i++) {
+>>>>>>> 0e079cb7da78238f257754198dc4d44a2927b3d3
             // getMonsterIDX(i);
             getMonsterIDX(i);
         }
