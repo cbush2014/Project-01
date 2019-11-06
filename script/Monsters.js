@@ -112,7 +112,7 @@
 
 
     function loadMonsterArrays() {
-        for (var i = 1; i < 325; i++) {
+        for (var i = 1; i < 31; i++) {
             // getMonsterIDX(i);
             getMonsterIDX(i);
         }
