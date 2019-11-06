@@ -112,7 +112,7 @@
 
 
     function loadMonsterArrays() {
-        for (var i = 1; i < 10; i++) {
+        for (var i = 1; i < 150; i++) {
             // getMonsterIDX(i);
             getMonsterIDX(i);
         }
@@ -124,8 +124,8 @@
     }
 
     $(document).ready(loadMonsterArrays);
-    $(document).ready(getRandomBattleMonsterFromArray(easy));
-    console.log(getRandomBattleMonsterFromArray(easy));
+    $(document).ready(getRandomBattleMonsterFromArray(med));
+    console.log(getRandomBattleMonsterFromArray(med));
 
     
     // var keyword = monster.name;
