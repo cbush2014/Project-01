@@ -27,13 +27,20 @@
 
     // set variable for the total number of monster records retrieved from api monsters table
     var numTotalMonsters = 0;
-
+    var monstersStoredInLocalStorage = false;
 
     var monsterArray = JSON.parse(localStorage.getItem('DnD') || "[ [],[],[],[] ]");
-
+    // Since the api can take some time loading 325 monster we check to see if it has
+    // already been loaded into local storage, if so we can just retrieve it from there
+    if (monsterArray[easy][1] === undefined) {
+        // monstersStoredInLocalStorage = true;
+    }
     // retrieve 1 monster from the DnD api directly using the specific monster's index
     // these currently range from 1 to 325
     function getMonsterIDX(Idx) {
+
+        if (monstersStoredInLocalStorage) {return;}
+
         searchQuery = "monsters/" + Idx.toString();
 
         $.ajax({
@@ -112,7 +119,7 @@
 
 
     function loadMonsterArrays() {
-        for (var i = 1; i < 150; i++) {
+        for (var i = 1; i < 325; i++) {
             // getMonsterIDX(i);
             getMonsterIDX(i);
         }
@@ -143,10 +150,3 @@
     //         });
     // });
 
-
-    function myFunction() {
-        var str = document.getElementById("demo").innerHTML; 
-        var txt = str.replace("Microsoft","W3Schools");
-        document.getElementById("demo").innerHTML = txt;
-
-    }
