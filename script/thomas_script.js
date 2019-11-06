@@ -85,7 +85,7 @@ function generatePlayInsult() {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        $("#playTaunt").text(response);
+        $("#playTaunt").text(CleanInsult(response));
     })
 };
 
@@ -95,8 +95,24 @@ function generateMonInsult() {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        $("#monTaunt").text(response);
+        $("#monTaunt").text(CleanInsult(response));
     })
 };
 
+
+function CleanInsult(reallybadphrase) {
+    var str = reallybadphrase
+    str = str.replace(/whore's soiled tampon/i,"call girl's soiled Napkin.")
+    str = str.replace(/motherfucker/gi, "goofball")
+    str = str.replace("asshole","backend");
+    str = str.replace(/testicles/gi,"privates")
+    str = str.replace(/fuck/gi, "jerk")
+    str = str.replace(/&quot;/gi, "'")
+    str = str.replace(/&gt;/gi, ">")
+    str = str.replace(/ass/gi,"dork")
+    str = str.replace(/&amp;/gi,"&")
+    str = str.replace(/dick/gi,"willy")
+    str = str.replace(/crap/gi,"poop")
+    return str;    
+}
 
