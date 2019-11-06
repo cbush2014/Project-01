@@ -97,3 +97,18 @@
 .playTaunt {
     text-align: right;
 }
+
+.mainMenuReturn {
+    color: black;
+}
+
+.startGame {
+    color: black;
+    font-size: 75%;
+}
+
+.startGame:hover {
+    color: goldenrod;
+}
+
+
