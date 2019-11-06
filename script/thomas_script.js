@@ -55,35 +55,41 @@ rockPS = function (guess) {//-- the Battle System; rock, paper, scissors basical
     if ((userGuess === "Fast Attack" && computerGuess === "Strong Attack") ||
         (userGuess === "Strong Attack" && computerGuess === "Counter") ||
         (userGuess === "Counter" && computerGuess === "Fast Attack")) {
-        $('audio#barb')[0].play();
+        $('audio#damagesound')[0].play();
         var curMONHealth = $("#monHealth").text() - barDmg;
         $("#monHealth").text(curMONHealth);
         if (curMONHealth = 0 || curMONHealth < 0) {
+            $('audio#victory')[0].play();
             battleTime();
         }
         $("#choiceDisplay").empty();
         $("#choiceDisplay").text("Axe used " + userGuess + ". The Monster used " + computerGuess + ". Axe dealt " + barDmg + " damage to the Monster");
 
     } else if (userGuess === computerGuess) {
+        $('audio#damagesound')[0].play();
         $('audio#barbdamaged')[0].play();
         var curMONHealth = $("#monHealth").text() - Math.floor((barDmg / 2));
         $("#monHealth").text(curMONHealth);
         if (curMONHealth = 0 || curMONHealth < 0) {
+            $('audio#victory')[0].play();
             battleTime();
         }
         var curPlayHealth = $("#playHealth").text() - Math.floor((monDmg / 2));
         $("#playHealth").text(curPlayHealth);
         if (curPlayHealth = 0 || curPlayHealth < 0) {
+            $('audio#gameover')[0].play();
             defeat();
         }
         $("#choiceDisplay").empty();
         $("#choiceDisplay").text("Axe used " + userGuess + ". The Monster used " + computerGuess + ". Axe takes " + Math.floor(monDmg / 2) + " damage. The Monster takes " + barDmg / 2 + " damage.");
 
     } else {
+        $('audio#damagesound')[0].play();
         $('audio#barbdamaged')[0].play();
         var curPlayHealth = $("#playHealth").text() - monDmg;
         $("#playHealth").text(curPlayHealth);
         if (curPlayHealth = 0 || curPlayHealth < 0) {
+            $('audio#gameover')[0].play();
             defeat();
         }
         $("#choiceDisplay").empty();
@@ -102,6 +108,7 @@ function generatePlayInsult() {
         method: "GET"
     }).then(function (response) {
         // console.log(response);
+        $('audio#barb')[0].play();
         $("#playTaunt").text(CleanInsult(response));
     })
 };
