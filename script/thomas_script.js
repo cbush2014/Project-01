@@ -84,7 +84,7 @@ function generatePlayInsult() {
         url: "http://evilinsult.com/generate_insult.php?lang=en&type=JSON",
         method: "GET"
     }).then(function (response) {
-        console.log(response);
+        // console.log(response);
         $("#playTaunt").text(CleanInsult(response));
     })
 };
@@ -94,7 +94,7 @@ function generateMonInsult() {
         url: "http://evilinsult.com/generate_insult.php?lang=en&type=JSON",
         method: "GET"
     }).then(function (response) {
-        console.log(response);
+        // console.log(response);
         $("#monTaunt").text(CleanInsult(response));
     })
 };
