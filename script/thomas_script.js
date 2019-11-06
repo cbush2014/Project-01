@@ -99,8 +99,9 @@ function generateMonInsult() {
     })
 };
 
-
+// Create function to clean up some of the really bad word returned from the insult generator
 function CleanInsult(reallybadphrase) {
+
     var str = reallybadphrase
     str = str.replace(/whore's soiled tampon/i,"call girl's soiled Napkin.")
     str = str.replace(/motherfucker/gi, "goofball")
