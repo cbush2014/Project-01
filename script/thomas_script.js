@@ -1,6 +1,9 @@
 $("document").ready(generateMonInsult());
 // var victoryCounter = 0;//-- a way to keep track of the wins so we can progress to the next difficulty
 
+$("document").mouseenter($('audio#battleMusic')[0].play());
+$('audio#battleMusic')[0].play()
+
 Barbar = {
     hitpoints: 37,
     damage: 11,
