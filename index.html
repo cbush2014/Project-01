@@ -1,88 +1,87 @@
 <!DOCTYPE html>
 <html lang="en" class="full-height">
-  ​
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>D&D API</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="./style/style.css">
+​
 
-    <link 
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>AXE DUNGEON!</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
+  <link rel="stylesheet" href="./style/style.css">
 
-  </head>
-  ​
-  
-  <body class="titlePage is-full-height background">
-    <section class="section">
-      <div class="container ">
-        
-            <strong>
-              <h1 class="title has-text-centered is-size-1">AXE DUNGEON!!!</h1>
-            </strong>
-         <br>
-         <br>
-        <p class="subtitle">Choose your <strong>Hero</strong> to start the game!</p>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap">
+
+</head>
+​
+
+<body class="titlePage is-full-height background">
+  <section class="section">
+    <div class="container ">
+
+      <strong>
+        <h1 class="title has-text-centered is-size-1">AXE DUNGEON!!!</h1>
+      </strong>
       <br>
       <br>
-   
+      <p class="subtitle">Choose your <strong>Hero</strong> to start the game!</p>
+      <br>
+      <br>
 
-    <div class="columns is-centered">
-      <div class="column is-one-fifth">
-        <strong class=" has-text-centered">Axe, the Barbarian</strong>
-        <figure class="image">
-          <img class="is-rounded"
-            src="https://cdna.artstation.com/p/assets/images/images/000/383/316/large/louis-ting-150103-barbarian-portrait.jpg?1420286823"
-          />
-        </figure>
+
+      <div class="columns is-centered">
+        <div class="column is-one-fifth heroName">
+          <strong class=" has-text-centered">Axe, the Barbarian</strong>
+          <figure class="image">
+            <img class="is-rounded"
+              src="https://cdna.artstation.com/p/assets/images/images/000/383/316/large/louis-ting-150103-barbarian-portrait.jpg?1420286823" />
+          </figure>
+        </div>
+
+        <div class="column is-three-fifths has-text-centered">
+          <a class="startGame" href="battlepage.html">
+            Axe was brought into this plane of existance to do one thing and one thing only, slay. Choose him and with
+            his mighty battle-axe slay the denizens of the deep until his barbarian bloodlust is sated, or succumb to
+            the perils of the dungeon.....
+          </a>
+        </div>
+
+        <div class="column is-one-fifth">
+
+        </div>
       </div>
+      <br>
+      <br>
 
-      <div class="column is-three-fifths has-text-centered">
-        <a class="startGame" href="battlepage.html">
-          Axe was brought into this plane of existance to do one thing and one thing only, slay. Choose him and with his mighty battle-axe slay the denizens of the deep until his barbarian bloodlust is sated, or succumb to the perils of the dungeon.....
-        </a>
-      </div>
+      <audio id="battleMusic">
+        <source src="./assets/sounds/battlemusic.wav" type="audio/mpeg">
+      </audio>
 
-      <div class="column is-one-fifth">
-        
-      </div>
-    </div>
-<br>
-<br>
-   
-    
-
-</section>
-</div>
-    <script
-      src="http://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      jQuery.ajaxPrefilter(function(options) {
-        if (options.crossDomain && jQuery.support.cors) {
-          options.url = "http://uncc-cors-proxy.herokuapp.com/" + options.url;
-        }
-      });
-    </script>
-    ​
-    <script>
-      $.ajax({
-        url: "http://dnd5eapi.co/api/spells/1",
-        method: "GET"
-      }).then(function(response) {
-        console.log(response);
-      });
-    </script>
-
-
-  </body>
+  </section>
+  </div>
+  <script src="./script/thomas_script.js"></script>
+  <script src="http://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script>
+    jQuery.ajaxPrefilter(function (options) {
+      if (options.crossDomain && jQuery.support.cors) {
+        options.url = "http://uncc-cors-proxy.herokuapp.com/" + options.url;
+      }
+    });
+  </script>
   ​
+  <script>
+    $.ajax({
+      url: "http://dnd5eapi.co/api/spells/1",
+      method: "GET"
+    }).then(function (response) {
+      console.log(response);
+    });
+
+    $("document").mouseenter($('audio#battleMusic')[0].play());
+  </script>
+
+
+</body>
+
 </html>
